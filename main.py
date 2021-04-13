@@ -18,7 +18,14 @@ async def on_message(message):
         await message.channel.send("No u.")
     if message.content.startswith('$good'):
         await message.channel.send('BuckaGamin is good')
-    if message.content.startwith('$test3'):
-      await message.channel.send('The Bot is working!')
+    if message.content.startswith('$test3'):
+        await message.channel.send('The Bot is working!')
+    if message.content.startswith("$whois sam"):
+        await message.channel.send("A fő fejlesztője ennek a botnak.")
+    if message.content.startswith("$whois ben"):
+        await message.channel.send("A második fejlesztője a projektnek, ő találta ki.")
+    if message.content.startswith("$credits"):
+        await message.channel.send("Made by Sam and Ben")
+        await message.channel.send("Bővebb információ a fejlesztőkről: $whois sam / $whois ben")
 
 client.run(os.getenv('TOKEN'))
