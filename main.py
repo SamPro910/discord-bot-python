@@ -15,10 +15,10 @@ async def on_message(message):
 
     if message.content.startswith('$hello'):
         await message.channel.send('Hello!')
-    elif message.content.startswith('$good'):
-        await message.channel.send('BuckaGamin is good')
-    elif message.content.startwith('$test3'):
-      await message.channel.send('The Bot is working!')
+#    elif message.content.startswith('$good'):
+#        await message.channel.send('BuckaGamin is good')
+#    elif message.content.startwith('$test3'):
+#      await message.channel.send('The Bot is working!')
 
 client.login(os.getenv('TOKEN'))
 client.run(os.getenv('TOKEN'))
