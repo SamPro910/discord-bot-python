@@ -6,10 +6,10 @@ import random
 
 client = discord.Client()
 randompar = ["$inspiráció", "$bonk", "$hello", "$noob", "$pokol", "$joke"]
-randomvicc = ["Mit mondasz amikor legyőződ félig Flameheartot?\nMegvan már fél-heart!", "– Szomszéd, használhatnám a "
-                                                                                        "fűnyíróját?– Persze, "
+randomvicc = ["\nMit mondasz amikor legyőződ félig Flameheartot?\nMegvan már fél-heart!", "\n– Szomszéd, használhatnám a "
+                                                                                        "fűnyíróját?\n– Persze, "
                                                                                         "csak ne vigye ki a "
-                                                                                        "kertemből…"] 
+                                                                                        "kertemből…"]
 def get_quote():
   response = requests.get("https://zenquotes.io/api/random")
   json_data = json.loads(response.text)
