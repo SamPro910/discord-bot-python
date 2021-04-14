@@ -12,8 +12,10 @@ async def on_message(message):
     if message.author == client.user:
         return
 
+    if message.content.startswith("$help"):
+        await message.channel.send("Parancsok: \n$hello - Köszönés\n$noob - no u\n$good - kiírja egy jó szerver nevét\n$test3 - kiírja, hogy fent van e a bot\n$credits - kiírja a készítőket")
     if message.content.startswith('$hello'):
-        await message.channel.send('Hello!')
+        await message.channel.send('Helló-Belló!')
     if message.content.startswith("$noob"):
         await message.channel.send("No u.")
     if message.content.startswith('$good'):
@@ -25,7 +27,6 @@ async def on_message(message):
     if message.content.startswith("$whois ben"):
         await message.channel.send("A második fejlesztője a projektnek, ő találta ki.")
     if message.content.startswith("$credits"):
-        await message.channel.send("Made by Sam and Ben")
-        await message.channel.send("Bővebb információ a fejlesztőkről: $whois sam / $whois ben")
+        await message.channel.send("Made by Sam and Ben\nTovábbi inforámció a készítőkről: $whois sam/$whois ben")
 
 client.run(os.getenv('TOKEN'))
