@@ -1,7 +1,14 @@
 import discord
 import os
+import requests
+import json
 
 client = discord.Client()
+def get_quote():
+  response = requests.get("https://zenquotes.io/api/random")
+  json_data = json.loads(response.text)
+  quote = json_data[0]['q'] + " -" + json_data[0]['a']
+  return(quote)
 
 @client.event
 async def on_ready():
@@ -11,10 +18,13 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
+    if message.content.startswith("$inspiráció"):
+        quote = get_quote()
+        await message.channel.send(quote)
     if message.content.startswith("$bonk"):
         await message.channel.send("https://steamuserimages-a.akamaihd.net/ugc/1618439156949856647/EBFE6D18C67B0599FFA3F25DA20F020E6C9854C8/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true")
     if message.content.startswith("$help"):
-        await message.channel.send("Parancsok: \n$hello - Köszönés\n$noob - no u\n$test - kiírja, hogy fent van e a bot\n$bonk - BONK!")
+        await message.channel.send("Parancsok: \n$hello - Köszönés\n$noob - no u\n$test - kiírja, hogy fent van e a bot\n$bonk - BONK!\n$inspiráció - egy inspiráló üzenet...")
     if message.content.startswith('$hello'):
         await message.channel.send('Helló!')
     if message.content.startswith("$noob"):
