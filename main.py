@@ -1,3 +1,4 @@
+#ez a benedek gépéről van.
 import discord
 import os
 
