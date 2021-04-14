@@ -5,7 +5,7 @@ import json
 import random
 
 client = discord.Client()
-randompar = ["$inspiráció", "$bonk", "$hello", "$noob"]
+randompar = ["$inspiráció", "$bonk", "$hello", "$noob", "$pokol"]
 def get_quote():
   response = requests.get("https://zenquotes.io/api/random")
   json_data = json.loads(response.text)
@@ -20,6 +20,8 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
+    if message.content.startswith("$pokol"):
+        await message.channel.send("Ez a szerver...")
     if message.content.startswith("$random"):
         await message.channel.send("A random parancs:" + random.choice(randompar))
     if message.content.startswith("$inspiráció"):
