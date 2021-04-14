@@ -23,7 +23,7 @@ async def on_message(message):
     if message.content.startswith("$pokol"):
         await message.channel.send("Ez a szerver...")
     if message.content.startswith("$random"):
-        await message.channel.send("A random parancs:" + random.choice(randompar))
+        await message.channel.send("A random parancs: " + random.choice(randompar))
     if message.content.startswith("$inspiráció"):
         quote = get_quote()
         await message.channel.send(quote)
