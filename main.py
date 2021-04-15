@@ -25,17 +25,17 @@ async def on_message(message):
         return
 
     msg = message.content
-    kuld = await message.channel.send
+    kuld = message.channel.send
 
     if message.content.startswith("$pokol"):
-        kuld("Ez a szerver...")
+        await kuld("Ez a szerver...")
     if message.content.startswith("$random"):
-        kuld("A random parancs: " + random.choice(randompar))
+        await kuld("A random parancs: " + random.choice(randompar))
     if message.content.startswith("$inspiráció"):
         quote = get_quote()
-        kuld(quote)
+        await kuld(quote)
     if message.content.startswith("$bonk"):
-        kuld("https://steamuserimages-a.akamaihd.net/ugc/1618439156949856647"
+        await kuld("https://steamuserimages-a.akamaihd.net/ugc/1618439156949856647"
                                    "/EBFE6D18C67B0599FFA3F25DA20F020E6C9854C8/?imw=637&imh=358&ima=fit&impolicy"
                                    "=Letterbox&imcolor=%23000000&letterbox=true")
     if message.content.startswith("$help"):
