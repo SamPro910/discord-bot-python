@@ -9,9 +9,9 @@ def get_quote():
     response = requests.get("https://zenquotes.io/api/random")
     json_data = json.loads(response.text)
     quote = json_data[0]['q'] + " -" + json_data[0]['a']
-    return(quote)
-	randompar = ["$inspiráció", "$bonk", "$hello", "$noob", "$pokol", "$joke"]
-	randomvicc = ["\nMit mondasz amikor legyőződ félig Flameheartot?\nMegvan már fél-heart!", "\n– Szomszéd, használhatnám a "
+    return quote
+randompar = ["$inspiráció", "$bonk", "$hello", "$noob", "$pokol", "$joke"]
+randomvicc = ["\nMit mondasz amikor legyőződ félig Flameheartot?\nMegvan már fél-heart!", "\n– Szomszéd, használhatnám a "
                                                                                         "fűnyíróját?\n– Persze, "
                                                                                         "csak ne vigye ki a "
                                                                                         "kertemből…"]
