@@ -3,6 +3,14 @@ import os
 import requests
 import json
 import random
+from discord.ext import commands
+
+bot = commands.Bot(command_prefix="$")
+
+@bot.command()
+async def create(ctx, arg):
+    guild = ctx.message.guild
+    await guild.create_text_channel(arg)
 
 client = discord.Client()
 def get_quote():
@@ -18,6 +26,11 @@ randomvicc = ["\nMit mondasz amikor legyőződ félig Flameheartot?\nMegvan már
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
+    print(discord.__version__)
+
+@client.event
+async def ctx():
+    guild = ctx.message.guild
 
 @client.event
 async def on_message(message):
@@ -26,6 +39,7 @@ async def on_message(message):
 
     msg = message.content
     kuld = message.channel.send
+    guild = "BuckaGaming"
 
     if message.content.startswith("$pokol"):
         await kuld("Ez a szerver...")
@@ -47,5 +61,8 @@ async def on_message(message):
         await kuld(quote)
     if message.content.startswith("$joke"):
         await kuld(random.choice(randomvicc))
+    if message.content.startswith('$createcooltext'):
+        guild = ctx.message.guild
+        channel = await guild.create_text_channel('cool-channel')
 
 client.run(os.getenv('TOKEN'))
