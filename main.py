@@ -1,8 +1,15 @@
 #ez a benedek gépéről van.
 import discord
 import os
+import requests
+import json
 
 client = discord.Client()
+def get_quote():
+    response = requests.get("https://zenquotes.io/api/random")
+    json_data = json.loads(response.text)
+    quote = json_data[0]['q'] + " -" + json_data[0]['a']
+    return(quote)
 
 @client.event
 async def on_ready():
@@ -22,5 +29,8 @@ async def on_message(message):
         await message.channel.send("No u.")
     if message.content.startswith('$test'):
         await message.channel.send('Működik!')
+    if message.content.startswith("inspirál"):
+        quote = get_quote()
+        await message.channel.send(quote)
 
 client.run(os.getenv('TOKEN'))
