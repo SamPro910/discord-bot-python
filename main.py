@@ -42,15 +42,10 @@ async def on_message(message):
         await message.channel.send("Parancsok: \n$hello - Köszönés\n$noob - no u\n$test - kiírja, hogy fent van e a "
                                    "bot\n$bonk - BONK!\n$inspiráció - egy inspiráló üzenet...\n$random - kiír egy "
                                    "random parancsot.\n$joke - add egy random viccet")
-    if msg.startswith('$hello'):
-        kuld('Helló!')
-    if msg.startswith("$noob"):
-        kuld("No u.")
-    if msg.startswith('$test'):
-        kuld('Működik!')
-    if msg.startswith("inspirál"):
+    if message.content.startswith("$inspiráció"):
         quote = get_quote()
-        kuld(quote)
-    if msg.startswith("$joke"):
-        kuld(random.choice(randomvicc))
+        await kuld(quote)
+    if message.content.startswith("$joke"):
+        await kuld(random.choice(randomvicc))
+
 client.run(os.getenv('TOKEN'))
