@@ -54,8 +54,10 @@ async def on_message(message):
         await kuld(quote)
     if message.content.startswith("$joke"):
         await kuld(random.choice(randomvicc))
-    if message.content.startswith('$createcooltext'):
-        guild = ctx.message.guild
-        channel = await guild.create_text_channel('cool-channel')
+        if message.content == ('$createvc'):
+            guild = 614499179007442987
+            channel = await message.guild.create_text_channel("autovc")
+            channel.edit(category="overflow")
+
 
 client.run(os.getenv('TOKEN'))
