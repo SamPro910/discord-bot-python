@@ -80,8 +80,14 @@ async def on_message(message):
         await kuld(quote)
     if message.content.startswith("$joke"):
         await kuld(random.choice(randomvicc))
-        if message.content == ('$createvc'):
-            channel = await create_text_channel(name="autovc", category="overflow")
+    if message.content == ('$createvc'):
+        channel = await create_text_channel("name=autovc", category=overflow)
+    if message.content.startswith('$embed'):
+        embed1 = discord.Embed(title="Helló!", description="Ez a legjobb szerver az egész magyar discord közösségben.", color=0000000)
+        embed1.add_field(name="A szerverről: ", value="Ez egy magyar discord szerver, amit nagyon jófej emberek "
+                                                      "futtatnak. Ez nem egy szponzorált üzenet.", inline=False)
+        embed1.add_field(name="Erről a botról: ", value="A szervernek dedikált bot, ami fejlesztésben van.", inline=False)
+        await message.channel.send(embed=embed1)
 
 
 client.run(os.getenv('TOKEN'))
