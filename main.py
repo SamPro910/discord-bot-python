@@ -83,10 +83,10 @@ async def on_message(message):
     if message.content == ('$createvc'):
         channel = await create_text_channel("name=autovc", category=overflow)
     if message.content.startswith('$embed'):
-        embed1 = discord.Embed(title="Helló!", description="Ez a legjobb szerver az egész magyar discord közösségben.", color=0000000)
-        embed1.add_field(name="A szerverről: ", value="Ez egy magyar discord szerver, amit nagyon jófej emberek "
-                                                      "futtatnak. Ez nem egy szponzorált üzenet.", inline=False)
-        embed1.add_field(name="Erről a botról: ", value="A szervernek dedikált bot, ami fejlesztésben van.", inline=False)
+        embed1 = discord.Embed(title="Log bejegyzés 4/17", description="Bejegyzés ápr. 17.", color=0000000)
+        embed1.add_field(name="Az embed rendszer: ", value="Ha van egy embed ami KELL! akkor beírom a kódba, és a "
+                                                           "$embed paranccsal le lehet hívni.", inline=False)
+        embed1.add_field(name="Ban/unban: ", value="TESZT NÉLKÜL! elvileg van egy ban/unban rendszer. ($ban/$unban)", inline=False)
         await message.channel.send(embed=embed1)
 
 
