@@ -88,6 +88,8 @@ async def on_message(message):
                                                            "$embed paranccsal le lehet hívni.", inline=False)
         embed1.add_field(name="Ban/unban: ", value="TESZT NÉLKÜL! elvileg van egy ban/unban rendszer. ($ban/$unban)", inline=False)
         await message.channel.send(embed=embed1)
+    if message.content == ("$something"):
+        await kuld("Y you want something?")
 
 
 client.run(os.getenv('TOKEN'))
